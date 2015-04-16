@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include "config_parser.h"
-//this is an edit
+
 TEST(NginxConfigParserTest, SimpleConfig) {
   NginxConfigParser parser;
   NginxConfig out_config;
@@ -35,9 +35,10 @@ TEST_F(NginxStringConfigTest, SimpleBadTextConfig){
 }
 TEST_F(NginxStringConfigTest, NestedConfig){
     EXPECT_TRUE(ParseString(
-        "foo { "
-        "bar {"
-         "baz qux;"
-         "}"
-         "}"));
+        "foo {"
+        "  bar {"
+        "    baz qux;"
+        "  }"
+        "}"
+        ));
 }
